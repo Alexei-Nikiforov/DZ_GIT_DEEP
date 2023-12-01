@@ -45,15 +45,6 @@ class Notes:
         else:
             print(f"Не удалось выполнить редактирование заметки. Попробуйте снова.")
 
-    # удаление заметок
-    def delete_note(self, index):
-        if 0 <= index < len(self.notes):
-            deleted_note = self.notes.pop(index)
-            self.save_notes()
-            print(f"Заметка '{deleted_note['title']}' успешно удалена.")
-        else:
-            print(f"Не удалось выполнить удаление заметки. Попробуйте снова.")
-
 # активация приложения Заметки
 if __name__ == "__main__":
 
@@ -65,8 +56,7 @@ if __name__ == "__main__":
         print("1. Создать заметку")
         print("2. Читать список заметок")
         print("3. Редактировать заметку")
-        print("4. Удалить заметку")
-        print("5. Выйти")
+        print("4. Выйти")
 
         choice = input("Введите номер действия: ")
         
@@ -91,16 +81,6 @@ if __name__ == "__main__":
                 print('Не удалось отредактировать заметку. Попробуйте снова')
         
         elif choice == "4":
-            try:
-                index = int(input("Введите номер заметки для удаления: ")) - 1
-                if 0 <= index < len(app.notes):
-                    app.delete_note(index)
-                else:
-                    print("Такого номера заметки нет. Попробуйте снова")
-            except Exception:
-                print('Не удалось удалить заметку. Попробуйте снова')
-        
-        elif choice == "5":
             break
         
         else:

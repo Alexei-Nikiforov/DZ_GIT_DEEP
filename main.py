@@ -35,6 +35,16 @@ class Notes:
             for idx, note in enumerate(self.notes):
                 print(f"{idx + 1}. {note['title']}. {note['content']}. {note['date']}")
 
+    # редактирование заметок
+    def edit_note(self, index, new_title, new_content):
+        if 0 <= index < len(self.notes):
+            self.notes[index]["title"] = new_title
+            self.notes[index]["content"] = new_content
+            self.save_notes()
+            print(f"Заметка успешно отредактирована.")
+        else:
+            print(f"Не удалось выполнить редактирование заметки. Попробуйте снова.")
+
     # удаление заметок
     def delete_note(self, index):
         if 0 <= index < len(self.notes):
